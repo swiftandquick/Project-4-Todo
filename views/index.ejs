@@ -1,27 +1,21 @@
 <%- include('header'); -%>
-  <body>
-    <form action="/" method="POST">
-        <input type="text" id="item" name="item" required/>
-        <button>Submit</button>
-    </form>
-    <ul class="todos">
-        <% for (let todoItem of todoItems) { %>
-            <li>
-                Item #<%= todoItem.id %>:  <%= todoItem.item %>, due by <%= todoItem.date %>
-                
-                <a href="/<%=todoItem.id%>/edit">Edit</a>
-                <!-- <form method="POST" action="/delete" enctype="application/x-www-form-urlencoded">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit">Delete resource</button>
-                  </form> -->
+<body>
+  <form action="/" method="POST">
+    <input type="text" id="item" name="item" required />
+    <button>Submit</button>
+  </form>
+  <ul class="todos">
+    <% for (let todoItem of todoItems) { %>
+    <li>
+      Item #<%= todoItem.id %>: <%= todoItem.item %>, due by <%= todoItem.date
+      %>
 
-                <form action="/<%=todoItem.id%>?_method=DELETE" method="POST">
-                    <button>Delete</button>
-                </form>
-            </li>
-        <% } %>
-    </ul>
-  </body>
-  <%- include('footer'); -%>
-
-
+      <a href="/<%=todoItem.id%>/edit">Edit</a>
+      <form action="/<%=todoItem.id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+      </form>
+    </li>
+    <% } %>
+  </ul>
+</body>
+<%- include('footer'); -%>
