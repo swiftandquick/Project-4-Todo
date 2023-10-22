@@ -1,0 +1,13 @@
+<%- include('header'); -%>
+
+<body>
+    <h1>Edit the Form</h1>
+    <button><a href="/">Back to List</a></button>
+
+    <form action="/<%=editItem.id%>?_method=PATCH" method="POST">
+        <input type="text" id="item" name="item" value=<%=editItem.item%> required/>
+        <button>Edit</button>
+    </form>
+    <form>
+</body>
+<%- include('footer'); -%>
